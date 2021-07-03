@@ -9,6 +9,8 @@ import {
 import { onError } from "@apollo/client/link/error";
 import { Route, Switch, Redirect } from "react-router-dom";
 
+import Continents from './components/Continents/Continents'
+
 
 
 
@@ -46,7 +48,7 @@ function App() {
           <Redirect to="/continents"/>
         </Route>
         <Route path="/continents" exact>
-          {}
+          <Continents/>
         </Route>
         <Route path="/continents/:continentCode">
           {}
