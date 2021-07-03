@@ -7,6 +7,11 @@ import {
   from,
 } from "@apollo/client"; 
 import { onError } from "@apollo/client/link/error";
+import { Route, Switch, Redirect } from "react-router-dom";
+
+
+
+
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors)
@@ -28,11 +33,29 @@ const client = new ApolloClient({
   link: link,
 });
 
+
+
+
 function App() {
   return (
     <ApolloProvider client={client}>
       <div className="App">
       <h1>Hello</h1>
+      <Switch>
+        <Route path="/" exact>
+          <Redirect to="/continents"/>
+        </Route>
+        <Route path="/continents" exact>
+          {}
+        </Route>
+        <Route path="/continents/:continentCode">
+          {}
+        </Route>
+
+        <Route path="*" exact>
+            <Redirect to="/continents"/>
+          </Route>
+      </Switch>
     </div>
     </ApolloProvider>
   );
