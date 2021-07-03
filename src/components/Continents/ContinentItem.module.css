@@ -1,0 +1,16 @@
+.element {
+    width: 120px;
+    height: 120px;
+    background-color: #ebebeb;
+    color: white;
+    margin: 16px;
+  }
+
+  .element a {
+    text-decoration: none;
+  color: #000;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+
+}

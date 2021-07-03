@@ -3,6 +3,8 @@ import { LOAD_CONTINENTS } from '../../GraphQL/Queries';
 
 import styles from './Continents.module.css';
 
+import ContinentItem from './ContinentItem';
+
 
 interface ContElement {
     code: string;
@@ -23,7 +25,8 @@ const Continents = () => {
             {loading && <p>loading...</p>}
             {error && <h3>{error.message}</h3>}
             {data?.continents.map(elem => {
-                return <li key={elem.code} >{elem.name} **** {elem.code}</li>
+                return <ContinentItem key={elem.code} name={elem.name} code={elem.code}/>
+                // return <li key={elem.code} >{elem.name} **** {elem.code}</li>
             })}
         </ul>
     )
