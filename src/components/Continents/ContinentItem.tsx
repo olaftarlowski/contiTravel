@@ -9,7 +9,6 @@ const ContinentItem: React.FC<{name: string; code: string;}> = (props) => {
             <Link to={`/continents/${props.code}`}>
                 <h3>{props.name}</h3>
                 <p>{props.code}</p>
-                
             </Link>
         </li>
     )
