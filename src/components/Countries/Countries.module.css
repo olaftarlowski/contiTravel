@@ -1,0 +1,35 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: stretch;
+}
+
+.btnContainer {
+    margin: 48px 0;
+}
+
+.backBtn {
+    width: 150px;
+    height: 60px;
+
+    background-color: #4d8bff;
+
+    border: 1px solid transparent;
+    border-radius: 24px;
+    border: none;
+    padding: 8px 16px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    white-space: normal;
+    transition: 0.1s;
+    font-size: 2em;
+    color: white;
+    text-transform: uppercase;
+}
+
+.backBtn:hover {
+    border: 1px solid #000;
+    -webkit-box-shadow: -1px 1px 15px 1px #4d8bff; 
+    box-shadow: -1px 1px 15px 1px #4d8bff;
+  }
