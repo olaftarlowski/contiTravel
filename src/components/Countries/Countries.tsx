@@ -4,6 +4,7 @@ import { LOAD_CONTINENTS_COUNTRIES } from '../../GraphQL/Queries';
 import { Link } from "react-router-dom";
 
 import styles from './Countries.module.css'
+import CountriesItem from "./CountriesItem";
 
 
 interface CountryLanguages {
@@ -49,18 +50,12 @@ const Countries = () => {
     if (matchContinent !== undefined) {
         content = <div className={styles.wrapper}>
             {matchContinent?.countries.map(e => {
-                return <div>{e.name}</div>
+                return <CountriesItem key={e.code} name={e.name} emoji={e.emoji} languages={e.languages}/>
             })}
         </div>
     } else if (!loading && params.continentCode) {
         content = <div>Page not found. Consider another path.</div>;
     }
-
-    const check = () => {
-        console.log(data?.continents);
-        console.log(matchContinent);
-    }
-
 
     return (
         <>
@@ -71,7 +66,6 @@ const Countries = () => {
                 <h2>Current continent code: {params.continentCode}</h2>
             </div>
             <div>
-                <button onClick={check}>check</button>
                 {error && <h3> {error.message} </h3>}
                 {content}
             </div>
