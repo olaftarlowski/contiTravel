@@ -43,7 +43,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <div className="App">
-      <h1>Hello</h1>
+      <h1>ContiTravel</h1>
       <Switch>
         <Route path="/" exact>
           <Redirect to="/continents"/>
