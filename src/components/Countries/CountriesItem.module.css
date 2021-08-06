@@ -1,0 +1,56 @@
+.card {
+    width: 250px;
+    height: 150px;
+    text-align: center;
+    background-color: #ebebeb;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 10px;
+    border: 1px solid #4d8bff;
+    font-size: 1.1rem;
+    padding: 20px;
+    margin: 16px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    -webkit-box-shadow: -5px 5px 20px 0px #000000;
+    box-shadow: -5px 5px 20px 0px #000000;
+    font-size: 1.1em;
+  }
+
+
+@media screen and (max-width: 1024px) {
+    .card {
+        
+        width: 26vw;
+        height: 120px;
+        padding: 16px;
+        margin: 8px;
+        font-size: 0.9rem;
+    }
+    .card h4 {
+        margin: 8px;
+    }
+    .card p {
+        margin: 8px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .card {
+        width: 28vw;
+        height: 80px;
+        padding: 2px;
+        margin: 1px;
+    }
+    .card h4 {
+        margin: 1px;
+    }
+    .card p {
+        margin: 1px;
+    }
+  }
