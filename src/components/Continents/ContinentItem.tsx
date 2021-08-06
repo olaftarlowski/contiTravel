@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+import { ContElement } from '../../ModelTS/ModelTS';
 import styles from './ContinentItem.module.css'
 
-const ContinentItem: React.FC<{name: string; code: string;}> = (props) => {
-    
+const ContinentItem: React.FC<ContElement> = (props) => {
+
 
     return (
         <li className={styles.element}>

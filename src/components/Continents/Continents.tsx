@@ -1,19 +1,8 @@
 import { useQuery } from "@apollo/client";
 import { LOAD_CONTINENTS } from '../../GraphQL/Queries';
-
-import styles from './Continents.module.css';
-
 import ContinentItem from './ContinentItem';
-
-
-interface ContElement {
-    code: string;
-    name: string;
-}
-
-interface ContData {
-    continents: ContElement[];
-}
+import { ContData } from '../../ModelTS/ModelTS';
+import styles from './Continents.module.css';
 
 
 const Continents = () => {
@@ -25,7 +14,7 @@ const Continents = () => {
             {loading && <p>loading...</p>}
             {error && <h3>{error.message}</h3>}
             {data?.continents.map(elem => {
-                return <ContinentItem key={elem.code} name={elem.name} code={elem.code}/>
+                return <ContinentItem key={elem.code} name={elem.name} code={elem.code} />
             })}
         </ul>
     )
