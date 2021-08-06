@@ -1,6 +1,7 @@
 import styles from './CountriesItem.module.css';
+import { Countries } from '../../ModelTS/ModelTS';
 
-const CountriesItem: React.FC<{name: string; emoji: string; languages: any;}> = (props) => {
+const CountriesItem: React.FC<Countries> = (props) => {
     
 
     return(

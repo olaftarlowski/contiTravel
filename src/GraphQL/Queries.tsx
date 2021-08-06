@@ -1,4 +1,4 @@
-import {gql} from '@apollo/client';
+import { gql } from '@apollo/client';
 
 export const LOAD_CONTINENTS = gql`
 query {
@@ -9,17 +9,17 @@ query {
 }
 `;
 
-export const LOAD_CONTINENTS_COUNTRIES = gql`
-query {
-    continents {
+export const LOAD_COUNTRIES = gql`
+query continent ($code: ID!) {
+    continent (code: $code) {
     code
     name
     countries {
-      	code
         name
-      	emoji
+        code
+        emoji 
         languages {
-        name
+            name
         }
     }
     }

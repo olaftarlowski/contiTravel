@@ -7,9 +7,15 @@ interface ContData {
     continents: ContElement[];
 }
 
+interface CountryLanguages {
+    name: string;
+}
+
 interface Countries {
     name: string;
     code: string;
+    emoji: string;
+    languages: CountryLanguages[];
 }
 
 interface ContEl {
@@ -23,12 +29,14 @@ interface Cont {
 }
 
 interface ParamTypes {
-    conCode: string;
+    continentCode: string;
     code: any;
 }
 
 
-export type {ContData, ContElement};
+export type { ContData, ContElement };
 
-export type {Cont, ParamTypes};
+export type { Cont, ParamTypes };
+
+export type { Countries };
 

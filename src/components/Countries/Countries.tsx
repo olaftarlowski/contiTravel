@@ -1,76 +1,41 @@
 import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
-import { LOAD_CONTINENTS_COUNTRIES } from '../../GraphQL/Queries';
+import { LOAD_COUNTRIES } from '../../GraphQL/Queries';
 import { Link } from "react-router-dom";
-
 import styles from './Countries.module.css'
 import CountriesItem from "./CountriesItem";
+import { Cont, ParamTypes } from '../../ModelTS/ModelTS';
 
-
-interface CountryLanguages {
-    name: string;
-}
-
-interface CountriesData {
-    code: string;
-    name: string;
-    emoji: string;
-    languages: CountryLanguages[];
-}
-
-interface ContElement {
-    code: string;
-    name: string;
-    countries: CountriesData[];
-}
-
-interface ContData {
-    continents: ContElement[];
-}
-
-interface ParamTypes {
-    continentCode: string
-}
 
 const Countries = () => {
-
-
-    const { error, loading, data } = useQuery<ContData>(LOAD_CONTINENTS_COUNTRIES);
-
     const params = useParams<ParamTypes>();
 
-    const matchContinent = data?.continents.find(cont => {
-        return cont.code === params.continentCode;
-    })
+    const { data, loading, error } = useQuery<Cont>(LOAD_COUNTRIES, {
+        variables: { code: params.continentCode }
+    });
 
-    let content = <div>
-        loading.....
-    </div>;
-
-    if (matchContinent !== undefined) {
-        content = <div className={styles.wrapper}>
-            {matchContinent?.countries.map(e => {
-                return <CountriesItem key={e.code} name={e.name} emoji={e.emoji} languages={e.languages}/>
-            })}
-        </div>
-    } else if (!loading && params.continentCode) {
-        content = <div>Page not found. Consider another path.</div>;
-    }
-
-    return (
-        <>
+    console.log(params.continentCode);
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error</p>;
+    if (data && data.continent !== null) {
+        console.log(data);
+        return <div>
             <div className={styles.btnContainer}>
                 <Link to="./">
                     <button className={styles.backBtn}>back</button>
                 </Link>
                 <h2>Current continent code: {params.continentCode}</h2>
             </div>
-            <div>
-                {error && <h3> {error.message} </h3>}
-                {content}
-            </div>
-        </>
-    )
+            <div className={styles.wrapper}>{data.continent.countries.map(e => {
+                return <CountriesItem key={e.code} code={e.code} name={e.name} emoji={e.emoji} languages={e.languages} />
+            })}</div>
+        </div>
+    } else if (!loading && params.continentCode) {
+        return <div>Page not found. Consider another path.</div>
+    }
+
+    return <div>Page not found. </div>
+
 }
 
 export default Countries;

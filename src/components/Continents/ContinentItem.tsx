@@ -4,7 +4,6 @@ import styles from './ContinentItem.module.css'
 
 const ContinentItem: React.FC<ContElement> = (props) => {
 
-
     return (
         <li className={styles.element}>
             <Link to={`/continents/${props.code}`}>

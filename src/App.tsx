@@ -5,15 +5,11 @@ import {
   ApolloProvider,
   HttpLink,
   from,
-} from "@apollo/client"; 
+} from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
 import { Route, Switch, Redirect } from "react-router-dom";
-
 import Continents from './components/Continents/Continents'
 import Countries from './components/Countries/Countries';
-
-
-
 
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {
@@ -43,23 +39,23 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <div className="App">
-      <h1>ContiTravel</h1>
-      <Switch>
-        <Route path="/" exact>
-          <Redirect to="/continents"/>
-        </Route>
-        <Route path="/continents" exact>
-          <Continents/>
-        </Route>
-        <Route path="/continents/:continentCode">
-          <Countries/>
-        </Route>
-
-        <Route path="*" exact>
-            <Redirect to="/continents"/>
+        <h1>ContiTravel</h1>
+        <Switch>
+          <Route path="/" exact>
+            <Redirect to="/continents" />
           </Route>
-      </Switch>
-    </div>
+          <Route path="/continents" exact>
+            <Continents />
+          </Route>
+          <Route path="/continents/:continentCode">
+            <Countries />
+          </Route>
+
+          <Route path="*" exact>
+            <Redirect to="/continents" />
+          </Route>
+        </Switch>
+      </div>
     </ApolloProvider>
   );
 }
