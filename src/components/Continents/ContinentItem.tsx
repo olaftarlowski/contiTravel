@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styles from './Continents.module.css';
+import styles from './ContinentItem.module.css'
 
 const ContinentItem: React.FC<{name: string; code: string;}> = (props) => {
     
