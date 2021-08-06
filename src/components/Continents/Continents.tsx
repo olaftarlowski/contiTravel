@@ -26,7 +26,6 @@ const Continents = () => {
             {error && <h3>{error.message}</h3>}
             {data?.continents.map(elem => {
                 return <ContinentItem key={elem.code} name={elem.name} code={elem.code}/>
-                // return <li key={elem.code} >{elem.name} **** {elem.code}</li>
             })}
         </ul>
     )
